@@ -198,4 +198,18 @@
 <script src="/js/index.js"></script>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'test',
+        owner: '',
+        repo: '',
+        oauth: {
+            client_id: '',
+            client_secret: '',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
 </html>
