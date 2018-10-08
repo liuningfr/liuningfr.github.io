@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="刘宁Leo的博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        个人最顺手的git工作流程 - 刘宁的博客 | Leo&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 感谢你能在茫茫人海中找到我 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpeg" />
+        </div>
+        <div class="name">
+            <i>刘宁Leo</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <!-- <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li> -->
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>文章</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            <!-- 
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+             -->
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化仓库"><span class="toc-text">初始化仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#每次修改完代码"><span class="toc-text">每次修改完代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重头戏：更新到远端仓库"><span class="toc-text">重头戏：更新到远端仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充场景"><span class="toc-text">补充场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#场景一：上线前需要合并master分支"><span class="toc-text">场景一：上线前需要合并master分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#场景二：修改线上BUG"><span class="toc-text">场景二：修改线上BUG</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 感谢你能在茫茫人海中找到我 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        个人最顺手的git工作流程
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-10-08 14:47:16</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>入职满一个月了，目前我们组是使用gitlab合作开发，在这里总结了一下git的使用流程。这一套流程是我目前自己在用的，感觉还不错。</p>
+<h3 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h3><pre><code>git clone + URL //创建本地仓库
+
+git checkout origin/dev -b dev //拉取远程dev分支到本地dev分支
+
+git checkout -b ningliu //新建自己的本地分支ningliu（ningliu是我的名字）
+
+git push --set-upstream origin ningliu //把自己的本地分支同步到远端分支
+
+git checkout ningliu //确保在自己的本地分支操作
+</code></pre><h3 id="每次修改完代码"><a href="#每次修改完代码" class="headerlink" title="每次修改完代码"></a>每次修改完代码</h3><pre><code>git add . //把自己的修改推送到本地index区
+
+git commit -m &quot;这里写提交的信息哦&quot; //把自己的修改推送到head区，并附加提交信息
+</code></pre><p>备注：不理解index区和head区等基本概念的推荐阅读 [git - 简易指南][1]。 这篇文章足够了解基本概念了。</p>
+<h3 id="重头戏：更新到远端仓库"><a href="#重头戏：更新到远端仓库" class="headerlink" title="重头戏：更新到远端仓库"></a>重头戏：更新到远端仓库</h3><p>我是将以下代码保存成<code>git.sh</code>文件，放在项目根目录下，每次运行<code>sh git.sh</code>即可自动实现以下命令。</p>
+<pre><code>#!/bin/sh
+
+if [ $? -ne 0 ]; then
+exit 1
+fi
+
+MAIN=&quot;dev&quot;
+# 将变量 ME 的值改为自己的分支名
+ME=&quot;branch_name&quot;
+
+git push # 把本地自己分支的修改推送到远端自己分支
+git pull # 拉取远端自己分支的更新
+git merge origin/${MAIN} # 把远端dev分支合并到本地自己分支
+git push # 把本地自己分支的修改推送到远端自己分支
+
+git checkout ${MAIN} # 切换到本地dev分支
+git pull # 拉取远端dev分支的更新
+git merge ${ME} # 把本地自己分支合并到本地dev分支
+git push # 把本地dev分支的修改推送到远端dev分支
+
+git checkout ${ME} # 切换回自己的本地分支
+</code></pre><p>每行命令我已经加上了注释。总之这几行命令实现了本地和远端自己的分支、本地和远端的dev分支的同步。前四行是实现自己分支的最新化，后四行是实现dev分支的最新化。</p>
+<p>如果同步过程中遇到冲突，再自行解决。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这是我目前最顺手的git工作流程，如果有更好的实践，欢迎大家一起讨论。</p>
+<h3 id="补充场景"><a href="#补充场景" class="headerlink" title="补充场景"></a>补充场景</h3><p>根据工作中遇到的场景越来越多，特此做一下补充：</p>
+<h4 id="场景一：上线前需要合并master分支"><a href="#场景一：上线前需要合并master分支" class="headerlink" title="场景一：上线前需要合并master分支"></a>场景一：上线前需要合并master分支</h4><p>每次上线都要合并master，为了保证代码的新鲜度，这个时候可以用以下命令合并master分支：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch #下载一下远程代码</span><br><span class="line">git merge orgin/master #把master分支合并到当前分支</span><br></pre></td></tr></table></figure>
+<h4 id="场景二：修改线上BUG"><a href="#场景二：修改线上BUG" class="headerlink" title="场景二：修改线上BUG"></a>场景二：修改线上BUG</h4><p>先在gitlab上基于master新建一个新的修改bug分支，例如master_fix<br>然后使用以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin master:master_fix #拉取远程分支到本地</span><br></pre></td></tr></table></figure>
+<p>需要修改的内容在这个分支修改就可以了。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/liuningfr">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/liu-ning">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>次访问
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>个用户
+        </span>
+    </p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</html>
