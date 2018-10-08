@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="刘宁Leo的博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        跨域问题的根本解决方案CORS - 刘宁的博客 | Leo&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 感谢你能在茫茫人海中找到我 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpeg" />
+        </div>
+        <div class="name">
+            <i>刘宁Leo</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <!-- <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li> -->
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>文章</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            <!-- 
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+             -->
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#介绍"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简单请求"><span class="toc-text">简单请求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复杂请求"><span class="toc-text">复杂请求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 感谢你能在茫茫人海中找到我 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        跨域问题的根本解决方案CORS
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-10-08 14:29:40</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>关于跨域问题有很多的解决方案，这里我们总结一下目前最通用最强大的解决方案：CORS。</p>
+<p>W3C 的 Web 工作组推荐了一种新的机制，即跨域资源共享（Cross-origin Resource Sharing），简称CORS。其实这个机制就是实现了跨站访问控制，使得安全地进行跨站数据传输成为可能。</p>
+<p>跨源资源共享标准( cross-origin sharing standard) 使得以下场景可以使用跨站 HTTP 请求：</p>
+<ol>
+<li>使用 XMLHttpRequest 或 Fetch发起跨站 HTTP 请求。</li>
+<li>Web 字体 (CSS 中通过 @font-face 使用跨站字体资源)，因此，网站就可以发布 TrueType 字体资源，并只允许已授权网站进行跨站调用。</li>
+<li>WebGL 贴图</li>
+<li>使用drawImage绘制</li>
+<li>Images/video 画面到canvas.</li>
+<li>样式表（使用 CSSOM）</li>
+<li>Scripts (for unmuted exceptions)</li>
+</ol>
+<p>CORS分为<strong>简单请求</strong>和<strong>复杂请求</strong>，处理方法也是有不同的，所以我们分别总结。</p>
+<h1 id="简单请求"><a href="#简单请求" class="headerlink" title="简单请求"></a>简单请求</h1><p>什么是简单请求呢？同时满足以下两个条件，就是简单请求：</p>
+<ol>
+<li>请求是下列之一：<br><code>HEAD</code><br><code>GET</code><br><code>POST</code></li>
+<li>HTTP的头信息不超出以下几种字段：<br><code>Accept</code><br><code>Accept-Language</code><br><code>Content-Language</code><br><code>Last-Event-ID</code><br><code>Content-Type</code>：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain</li>
+</ol>
+<p>实现方法非常简单，只需要把服务器的响应报文里的<code>Access-Control-Allow-Origin</code>设置为<code>*</code>或者包含由 <code>Origin</code>指明的站点。</p>
+<p><code>Access-Control-Allow-Origin</code>是<strong>HTTP响应报文</strong>中的一个字段，<code>Origin</code>是<strong>HTTP请求报文</strong>中的以一个字段,如果不清楚这两个字段的话，可以自行查阅关于<strong>HTTP报文</strong>的知识，比如<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP" target="_blank" rel="noopener">HTTP | MDN</a>。</p>
+<h1 id="复杂请求"><a href="#复杂请求" class="headerlink" title="复杂请求"></a>复杂请求</h1><p>如果不是简单请求，那就是复杂请求，比如请求的方法是<code>PUT</code>或者<code>DELETE</code>，比如<code>Content-Type</code>字段的类型是application/json，比如设置了自定义头信息。</p>
+<p>复杂请求就是比简单请求多了个预检请求（preflight）而已。</p>
+<p>预检请求就是浏览器先询问服务器，当前网页所在的域名是否在服务器的许可名单之中，以及可以使用哪些HTTP动词和头信息字段。只有得到肯定答复，浏览器才会发出正式的XMLHttpRequest请求，否则就报错。</p>
+<p>预检请求用的请求方法是<code>OPTIONS</code>，表示这个请求是用来询问的。头信息里面，关键字段是<code>Origin</code>，表示请求来自哪个源。除了<code>Origin</code>字段，还有两个字段非常重要：<code>Access-Control-Request-Method</code>和<code>Access-Control-Request-Headers</code>，分别表示允许的请求方法和请求头。</p>
+<p>举一个具体的例子：</p>
+<p>现在，我们有一个页面向服务器发送了一个<code>POST</code>请求，并且我们自己定义了一个请求头字段<code>My-HEADER</code>，这时候浏览器就会首先发送一个<code>OPTION</code>请求来做预检请求，请求头里有以下字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Request-Method: POST</span><br><span class="line">Access-Control-Request-Headers: My-HEADER</span><br></pre></td></tr></table></figure>
+<p>如果预检请求成功的话，响应头里的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: http://example.com //表明服务器允许http://example.com的请求</span><br><span class="line">Access-Control-Allow-Methods: POST, GET, OPTIONS //表明服务器可以接受POST, GET和 OPTIONS的请求方法</span><br><span class="line">Access-Control-Allow-Headers: My-HEADER //传递一个可接受的自定义请求头列表</span><br><span class="line">Access-Control-Max-Age: 3000000 //告诉浏览器，本次预检请求的响应结果有效时间是多久</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上就是CORS方法解决跨域问题的流程，CORS支持所有类型的HTTP请求，是目前跨域问题的根本解决方案。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/liuningfr">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/liu-ning">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>次访问
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>个用户
+        </span>
+    </p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</html>
