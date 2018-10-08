@@ -11,7 +11,7 @@
 
     <title>
         
-        刘宁的博客 | Leo&#39;s Blog
+        几张图看明白MVC MVP MVVM - 刘宁的博客 | Leo&#39;s Blog
         
     </title>
 
@@ -53,7 +53,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -88,6 +88,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC"><span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVP"><span class="toc-text">MVP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVVM"><span class="toc-text">MVVM</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -111,112 +115,58 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2018-10-08</div>
-        <div class="post-info">
-            <a href="/2018/10/08/几张图看明白MVC MVP MVVM/">
-                <h3>
-                    几张图看明白MVC MVP MVVM
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-10-08</div>
-        <div class="post-info">
-            <a href="/2018/10/08/Vue底层实现原理概述/">
-                <h3>
-                    Vue底层实现原理概述
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-10-08</div>
-        <div class="post-info">
-            <a href="/2018/10/08/如果你还搞不懂HTTP报文/">
-                <h3>
-                    如果你还搞不懂HTTP报文
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-10-08</div>
-        <div class="post-info">
-            <a href="/2018/10/08/跨域问题的根本解决方案CORS/">
-                <h3>
-                    跨域问题的根本解决方案CORS
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-10-08</div>
-        <div class="post-info">
-            <a href="/2018/10/08/什么是跨域以及几种简单解决方案/">
-                <h3>
-                    什么是跨域以及几种简单解决方案
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-10-08</div>
-        <div class="post-info">
-            <a href="/2018/10/08/JavaScript实现类与继承的方法（全面整理）/">
-                <h3>
-                    JavaScript实现类与继承的方法（全面整理）
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2018-10-07</div>
-        <div class="post-info">
-            <a href="/2018/10/07/为什么要使用闭包和如何使用闭包/">
-                <h3>
-                    为什么要使用闭包和如何使用闭包
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-</div>
-<ul class="pager">
-    
-    
-</ul>
 
+
+<div class="post-container">
+    <div class="post-title">
+        几张图看明白MVC MVP MVVM
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-10-08 14:42:32</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章整理于阮一峰老师的文章，我整理过来做一下学习记录，也方便有需要的朋友浏览。</p>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC由以下三部分组成：</p>
+<p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0smeix2ej30e809rmx0.jpg" alt="图片描述"></p>
+<ol>
+<li><strong>视图（View）：</strong>用户界面</li>
+<li><strong>控制器（Controller）：</strong>业务逻辑</li>
+<li><strong>模型（Model）：</strong>数据保存</li>
+</ol>
+<p>各部分之间的通信过程如下：</p>
+<p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0sme84axj30g009qglq.jpg" alt="图片描述"></p>
+<ol>
+<li>View 传送指令到 Controller</li>
+<li>Controller 完成业务逻辑后，要求 Model 改变状态</li>
+<li>Model 将新的数据发送到 View，用户得到反馈</li>
+</ol>
+<p>用户进行操作时，MVC可以分成两种方式。一种是通过 View 接受指令，传递给 Controller：</p>
+<p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0smdbphhj30g00e0mxm.jpg" alt="图片描述"></p>
+<p>另一种是直接通过controller接受指令：</p>
+<p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0smd4vpij30fm0di74h.jpg" alt="图片描述"></p>
+<h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><p>MVP 模式将 Controller 改名为 Presenter，同时改变了通信方向：</p>
+<p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0smcz7eqj30ex08zjrb.jpg" alt="图片描述"></p>
+<ol>
+<li>各部分之间的通信，都是双向的</li>
+<li>View 与 Model 不发生联系，都通过 Presenter 传递</li>
+<li>View 非常薄，不部署任何业务逻辑，称为被动视图（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里</li>
+</ol>
+<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致，唯一的区别是，它采用<strong>双向绑定</strong>（data-binding），View的变动，自动反映在 ViewModel，反之亦然：</p>
+<p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0smcsd8wj30fg0brwef.jpg" alt="图片描述"></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+    </div>
+</div>
     </div>
 </div>
 
@@ -271,7 +221,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.xml"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

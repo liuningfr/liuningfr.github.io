@@ -3,6 +3,17 @@
   
     
     <entry>
+      <title>几张图看明白MVC MVP MVVM</title>
+      <link href="/2018/10/08/%E5%87%A0%E5%BC%A0%E5%9B%BE%E7%9C%8B%E6%98%8E%E7%99%BDMVC%20MVP%20MVVM/"/>
+      <url>/2018/10/08/%E5%87%A0%E5%BC%A0%E5%9B%BE%E7%9C%8B%E6%98%8E%E7%99%BDMVC%20MVP%20MVVM/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章整理于阮一峰老师的文章，我整理过来做一下学习记录，也方便有需要的朋友浏览。</p><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC由以下三部分组成：</p><p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0smeix2ej30e809rmx0.jpg" alt="图片描述"></p><ol><li><strong>视图（View）：</strong>用户界面</li><li><strong>控制器（Controller）：</strong>业务逻辑</li><li><strong>模型（Model）：</strong>数据保存</li></ol><p>各部分之间的通信过程如下：</p><p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0sme84axj30g009qglq.jpg" alt="图片描述"></p><ol><li>View 传送指令到 Controller</li><li>Controller 完成业务逻辑后，要求 Model 改变状态</li><li>Model 将新的数据发送到 View，用户得到反馈</li></ol><p>用户进行操作时，MVC可以分成两种方式。一种是通过 View 接受指令，传递给 Controller：</p><p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0smdbphhj30g00e0mxm.jpg" alt="图片描述"></p><p>另一种是直接通过controller接受指令：</p><p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0smd4vpij30fm0di74h.jpg" alt="图片描述"></p><h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><p>MVP 模式将 Controller 改名为 Presenter，同时改变了通信方向：</p><p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0smcz7eqj30ex08zjrb.jpg" alt="图片描述"></p><ol><li>各部分之间的通信，都是双向的</li><li>View 与 Model 不发生联系，都通过 Presenter 传递</li><li>View 非常薄，不部署任何业务逻辑，称为被动视图（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里</li></ol><h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致，唯一的区别是，它采用<strong>双向绑定</strong>（data-binding），View的变动，自动反映在 ViewModel，反之亦然：</p><p><img src="https://ws1.sinaimg.cn/large/0072eorIgy1fw0smcsd8wj30fg0brwef.jpg" alt="图片描述"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    <entry>
       <title>Vue底层实现原理概述</title>
       <link href="/2018/10/08/Vue%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/"/>
       <url>/2018/10/08/Vue%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/</url>
