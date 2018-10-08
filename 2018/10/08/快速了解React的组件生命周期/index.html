@@ -143,7 +143,9 @@
 <li>前缀为 did 的方法在一些事情发生后被调用。</li>
 </ol>
 <p>那组件的生命周期分为哪几个过程呢？共有三大过程：<strong>Mounting(装载)，Updating(更新)，Unmounting(卸载)</strong></p>
-<p><strong>Mounting</strong>的意思就是一个组件实例被创建并将其插入 DOM 中；<br><strong>Updating</strong>的意思就是刚刚完成Mounting的这个组件实例发生了变化，比如改变了 props 或 state；<br><strong>Unmounting</strong>的意思就是这个组件从 DOM 中删除；</p>
+<p><strong>Mounting</strong>的意思就是一个组件实例被创建并将其插入 DOM 中；</p>
+<p><strong>Updating</strong>的意思就是刚刚完成Mounting的这个组件实例发生了变化，比如改变了 props 或 state；</p>
+<p><strong>Unmounting</strong>的意思就是这个组件从 DOM 中删除；</p>
 <p>简而言之就是这三大过程，我去首次挂载这个组件，我去更新这个组件，我去卸载这个组件。<br>以下要介绍的组件的生命周期函数全都是围绕这三大过程。</p>
 <h2 id="组件的生命周期函数"><a href="#组件的生命周期函数" class="headerlink" title="组件的生命周期函数"></a>组件的生命周期函数</h2><h3 id="当Mounting发生的时候"><a href="#当Mounting发生的时候" class="headerlink" title="当Mounting发生的时候"></a>当Mounting发生的时候</h3><p>当组件挂载发生的时候，以下函数先后触发：</p>
 <ol>
