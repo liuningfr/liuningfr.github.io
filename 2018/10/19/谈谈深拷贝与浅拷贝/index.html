@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#深拷贝和浅拷贝的区别"><span class="toc-text">深拷贝和浅拷贝的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谈谈Object-assign"><span class="toc-text">谈谈Object.assign()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的实现深拷贝的方式"><span class="toc-text">常用的实现深拷贝的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON"><span class="toc-text">JSON</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lodash"><span class="toc-text">lodash</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深拷贝和浅拷贝的区别"><span class="toc-text">深拷贝和浅拷贝的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#谈谈Object-assign"><span class="toc-text">谈谈Object.assign()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的实现深拷贝的方式"><span class="toc-text">常用的实现深拷贝的方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON"><span class="toc-text">JSON</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lodash"><span class="toc-text">lodash</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -131,7 +131,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>##前言##<br>关于深拷贝和浅拷贝其实是两个比较基础的概念，但是我还是想整理一下，因为里面有很多小细节还是很有意思的。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关于深拷贝和浅拷贝其实是两个比较基础的概念，但是我还是想整理一下，因为里面有很多小细节还是很有意思的。</p>
 <h2 id="深拷贝和浅拷贝的区别"><a href="#深拷贝和浅拷贝的区别" class="headerlink" title="深拷贝和浅拷贝的区别"></a>深拷贝和浅拷贝的区别</h2><p>深拷贝和浅拷贝是大家经常听到的两个名词，两者到底有什么不同呢？</p>
 <p>先看看什么是浅拷贝。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = obj1;</span><br><span class="line">obj2.a = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj1); <span class="comment">// &#123; a: 3, b: 2 &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj2); <span class="comment">// &#123; a: 3, b: 2 &#125;</span></span><br></pre></td></tr></table></figure>
