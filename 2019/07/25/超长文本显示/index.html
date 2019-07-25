@@ -11,7 +11,7 @@
 
     <title>
         
-        超长文本显示 - 刘宁的博客 | Leo&#39;s Blog
+        从超长文本显示谈起的一些废话 - 刘宁的博客 | Leo&#39;s Blog
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flex-Box"><span class="toc-text">Flex Box</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#box-orient"><span class="toc-text">box-orient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#line-clamp"><span class="toc-text">line-clamp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#box-direction"><span class="toc-text">box-direction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#box-align"><span class="toc-text">box-align</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flex-Box"><span class="toc-text">Flex Box</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#box-orient"><span class="toc-text">box-orient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#line-clamp"><span class="toc-text">line-clamp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#box-direction"><span class="toc-text">box-direction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#box-align"><span class="toc-text">box-align</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#box-pack"><span class="toc-text">box-pack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后记"><span class="toc-text">后记</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -119,7 +119,7 @@
 
 <div class="post-container">
     <div class="post-title">
-        超长文本显示
+        从超长文本显示谈起的一些废话
     </div>
 
     <div class="post-meta">
@@ -147,14 +147,27 @@
 <p>其实这涉及到了<code>CSS3</code>中的一种盒模型<code>box-flex</code>，不同于我们最常使用的<code>flex</code>布局，<code>box-flex</code>布局一直没有被<code>CSS</code>纳入标准，使用的时候也不得不加上<code>-webkit</code>或者<code>-moz</code>等前缀。（本文浏览器默认为Chrome，所以代码中只会加<code>-webkit</code>）</p>
 <h3 id="box-orient"><a href="#box-orient" class="headerlink" title="box-orient"></a>box-orient</h3><p>可选值：<code>horizontal</code> | <code>vertical</code></p>
 <p>上述代码中的<code>box-orient</code>是用来表示父容器的子容器的排练方式是水平排列(<code>horizontal</code>)还是竖直排列(<code>vertical</code>)，如下图：</p>
-<p><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c5swkbzdj30i406w74b.jpg" width="300" height="100" alt="图片名称"></p>
-<p><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c5tzznovj306k0huaa4.jpg" width="100" height="300" alt="图片名称"></p>
+<p><code>box-orient: horizontal</code><br><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c5swkbzdj30i406w74b.jpg" width="300" height="100" alt="图片名称"></p>
+<p><code>box-orient: vertical</code><br><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c5tzznovj306k0huaa4.jpg" width="100" height="300" alt="图片名称"></p>
 <h3 id="line-clamp"><a href="#line-clamp" class="headerlink" title="line-clamp"></a>line-clamp</h3><p>可选值： <code>none</code> | 任意数字</p>
 <p>这个属性用来显示容器中最多显示的行数。如果需要做最多显示3行的超长文本，就可以设置<code>line-clamp: 3</code>。默认值是<code>none</code>,表示不限制行数。</p>
 <h3 id="box-direction"><a href="#box-direction" class="headerlink" title="box-direction"></a>box-direction</h3><p>可选值：<code>normal</code> | <code>reverse</code></p>
 <p>默认值是<code>normal</code>,表示子元素按照文档流中正常的顺序排列；如果设置<code>box-direction: reverse</code>,表示子元素倒序排列，如下图：</p>
-<p><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c5swkbzdj30i406w74b.jpg" width="300" height="100" alt="图片名称"></p>
+<p><code>box-direction: reverse</code><br><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c77mlpraj308w03cwec.jpg" width="300" height="100" alt="图片名称"></p>
 <h3 id="box-align"><a href="#box-align" class="headerlink" title="box-align"></a>box-align</h3><p>可选值： <code>start</code> | <code>end</code> | <code>center</code> | <code>stretch</code></p>
+<p>这个属性用来表示子元素在父容器中的垂直排列方式。</p>
+<p><code>box-align: start</code>表示靠顶部对齐<br><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c7lnomy5j308w0620sm.jpg" width="300" height="200" alt="图片名称"></p>
+<p><code>box-align: end</code>表示靠底部对齐<br><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c7ls8n1qj308q0640sm.jpg" width="300" height="200" alt="图片名称"></p>
+<p><code>box-align: center</code>表示居中对齐<br><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c7lxe51yj308s0623ye.jpg" width="300" height="200" alt="图片名称"></p>
+<p><code>box-align: stretch</code>表示子元素拉伸到与父元素等高<br><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c7m0j1u9j308w0650sm.jpg" width="300" height="200" alt="图片名称"></p>
+<h3 id="box-pack"><a href="#box-pack" class="headerlink" title="box-pack"></a>box-pack</h3><p>可选值： <code>start</code> | <code>end</code> | <code>center</code> | <code>justify</code></p>
+<p>这个属性用来表示子元素在父容器中的水平排列方式。</p>
+<p><code>box-pack: start</code>表示靠左对齐<br><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c7rgf2frj30bp03ba9x.jpg" width="400" height="100" alt="图片名称"></p>
+<p><code>box-pack: end</code>表示靠右对齐<br><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c7rjyp99j30bq03ca9x.jpg" width="400" height="100" alt="图片名称"></p>
+<p><code>box-pack: center</code>表示居中对齐<br><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c7spsawjj30bn037a9x.jpg" width="400" height="100" alt="图片名称"></p>
+<p><code>box-pack: stretch</code>表示等分父元素的宽度对齐<br><img src="http://tva1.sinaimg.cn/large/0060lm7Tly1g5c7rpyeroj30bg037745.jpg" width="400" height="100" alt="图片名称"></p>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>其实看到这里大家已经发现了，<code>box-flex</code>特别像我们每天都在使用的<code>flex</code>布局，但是身世可怜的它并没有被<code>CSS</code>的主流标准接受，但是也是<code>CSS3</code>的世界中的一部分，至少在处理多行超长文本显示的时候，还会被人们想起。</p>
+<p>本文完，如有问题，欢迎指正。</p>
 
         
         <br />
